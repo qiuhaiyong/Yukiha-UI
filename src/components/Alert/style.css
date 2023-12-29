@@ -1,0 +1,59 @@
+.yu-alert {
+  --yu-alert-content-font-size: 13px;
+  --yu-alert-text-color: var(--yu-text-color-regular);
+  --yu-alert-bg-color: var(--yu-fill-color-blank);
+  --yu-alert-border-radius: var(--yu-border-radius-base);
+  --yu-alert-padding: 10px 16px;
+}
+
+.yu-alert {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  line-height: 18px;
+  font-size: var(--yu-alert-content-font-size);
+  color: var(--yu-alert-text-color);
+  background-color: var(--yu-alert-bg-color);
+  padding: var(--yu-alert-padding);
+  border-radius: var(--yu-alert-border-radius);
+}
+
+@each $val in success, warning, info, error {
+  .yu-alert--$(val) {
+    --yu-alert-text-color: var(--yu-color-$(val));
+    --yu-alert-bg-color: var(--yu-color-$(val)-light-9);
+  }
+  .yu-alert--$(val).yu-alert--dark {
+    --yu-alert-text-color: var(--yu-fill-color-blank);
+    --yu-alert-bg-color: var(--yu-color-$(val));
+  }
+}
+.yu-alert-icon {
+  line-height: 0;
+}
+.yu-alert__content {
+  display: table-cell;
+}
+
+.yu-alert__title {
+  padding: 0 8px;
+}
+
+.yu-alert__close-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.fade-leave-from {
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: opacity var(--yu-transition-duration);
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
